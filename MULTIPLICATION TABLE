@@ -1,32 +1,11 @@
 #include <stdio.h>
-#define ROWS 3
-#define COLS 3
 int main() {
-    int matrix1[ROWS][COLS], matrix2[ROWS][COLS], result[ROWS][COLS];
-    int i, j;
-    printf("Enter the elements of the first matrix:\n");
-    for(i=0; i<ROWS; i++) {
-        for(j=0; j<COLS; j++) {
-            scanf("%d", &matrix1[i][j]);
-        }
-    }
-    printf("Enter the elements of the second matrix:\n");
-    for(i=0; i<ROWS; i++) {
-        for(j=0; j<COLS; j++) {
-            scanf("%d", &matrix2[i][j]);
-        }
-    }
-    for(i=0; i<ROWS; i++) {
-        for(j=0; j<COLS; j++) {
-            result[i][j] = matrix1[i][j] - matrix2[i][j];
-        }
-    }
-    printf("The difference of the matrices is:\n");
-    for(i=0; i<ROWS; i++) {
-        for(j=0; j<COLS; j++) {
-            printf("%d ", result[i][j]);
-        }
-        printf("\n");
+    int num, i;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Multiplication table of %d:\n", num);
+    for (i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", num, i, num * i);
     }
     return 0;
 }
