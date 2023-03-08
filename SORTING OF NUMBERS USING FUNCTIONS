@@ -1,0 +1,18 @@
+#include <stdio.h>
+void sort(int *x, int *y) {
+    int temp;
+    if (*x > *y) {
+        temp = *x;
+        *x = *y;
+        *y = temp;
+    }
+}
+int main() {
+    int num1, num2;
+    printf("Enter two numbers to be sorted: ");
+    scanf("%d %d", &num1, &num2);
+    printf("Original numbers: %d %d\n", num1, num2);
+    sort(&num1, &num2);
+    printf("Sorted numbers: %d %d\n", num1, num2);
+    return 0;
+}
