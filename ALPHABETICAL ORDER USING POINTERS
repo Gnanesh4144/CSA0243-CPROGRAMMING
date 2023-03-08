@@ -1,0 +1,46 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+int main() {
+  int list;
+  char *names[20];
+  char str[20];
+  printf("Enter the number of names: ");
+  scanf("%d", &list);
+  fflush(stdin);
+  for (int i = 0; i < list; i++) {
+    printf("Enter name %d: ", i + 1);
+    scanf("%[^\t\n]s", str);
+    fflush(stdin);
+    names[i] = (char *)malloc(strlen(str) + 1);
+    strcpy(names[i], str);
+  }
+  void sortNames();
+  for (int i = 0; i < 5; i++)
+    printf("%s\n", names[i]);
+  return 0;
+}
+void sortNames(char **name, int *n) {
+  int i, j;
+  for (j = 0; j < *n - 1; j++) {
+    for (i = 0; i < *n - 1; i++) {
+      if (compareStr(name[i], name[i + 1]) > 0) {
+        char *t = name[i];
+        name[i] = name[i + 1];
+        name[i + 1] = t;
+      }
+    }
+  }
+}
+int compareStr(char *str1, char *str2) {
+  while (*str1 == *str2) {
+    if (*str1 == '\0' || *str2 == '\0')
+      break;
+    str1++;
+    str2++;
+  }
+  if (*str1 == '\0' && *str2 == '\0')
+    return 0;
+  else
+    return -1;
+}
