@@ -1,0 +1,32 @@
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int rollNo;
+    int marks[5];
+};
+int main() {
+    int i;
+    float total = 0.0, average;
+    struct Student s;
+    printf("Enter name: ");
+    fgets(s.name, sizeof(s.name), stdin);
+    printf("Enter roll number: ");
+    scanf("%d", &s.rollNo);
+    printf("Enter marks of 5 subjects:\n");
+    for (i = 0; i < 5; i++) {
+        printf("Subject %d: ", i+1);
+        scanf("%d", &s.marks[i]);
+        total += s.marks[i];
+    }
+    average = total / 5.0;
+    printf("\nName: %s", s.name);
+    printf("Roll No.: %d\n", s.rollNo);
+    printf("Marks: ");
+    for (i = 0; i < 5; i++) {
+        printf("%d ", s.marks[i]);
+    }
+    printf("\n");
+    printf("Total: %.2f\n", total);
+    printf("Average: %.2f\n", average);
+    return 0;
+}
